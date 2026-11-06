@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "src\\PetFinder.Api\\PetFinder.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "src\\PetFinder.Blazor\\PetFinder.Blazor.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+@PetFinder.Api_HostAddress = http://localhost:5204
+
+GET {{PetFinder.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

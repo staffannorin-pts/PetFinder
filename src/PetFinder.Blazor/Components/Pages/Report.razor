@@ -1,0 +1,153 @@
+@page "/report"
+@using System.ComponentModel.DataAnnotations
+@inject PetReportsApiClient ApiClient
+
+<PageTitle>Skapa rapport</PageTitle>
+
+<h1>Rapportera borttappat djur</h1>
+
+@if (!string.IsNullOrWhiteSpace(_errorMessage))
+{
+    <div class="alert alert-danger" role="alert">@_errorMessage</div>
+}
+
+@if (!string.IsNullOrWhiteSpace(_successMessage))
+{
+    <div class="alert alert-success" role="alert">@_successMessage</div>
+}
+
+<EditForm Model="_form" OnValidSubmit="HandleSubmitAsync">
+    <DataAnnotationsValidator />
+
+    <div class="mb-3">
+        <label class="form-label">Roll</label>
+        <InputSelect class="form-select" @bind-Value="_form.ReporterType">
+            <option value="@ReporterType.Owner">Owner</option>
+            <option value="@ReporterType.Observer">Observer</option>
+        </InputSelect>
+    </div>
+
+    @if (_form.ReporterType == ReporterType.Owner)
+    {
+        <div class="mb-3">
+            <label class="form-label">Djurets namn</label>
+            <InputText class="form-control" @bind-Value="_form.PetName" />
+            <ValidationMessage For="() => _form.PetName" />
+        </div>
+    }
+
+    <div class="mb-3">
+        <label class="form-label">Beskrivning</label>
+        <InputTextArea class="form-control" @bind-Value="_form.AnimalDescription" />
+        <ValidationMessage For="() => _form.AnimalDescription" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Platsnamn</label>
+        <InputText class="form-control" @bind-Value="_form.LocationName" />
+        <ValidationMessage For="() => _form.LocationName" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Latitude</label>
+        <InputNumber class="form-control" @bind-Value="_form.Latitude" />
+        <ValidationMessage For="() => _form.Latitude" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Longitude</label>
+        <InputNumber class="form-control" @bind-Value="_form.Longitude" />
+        <ValidationMessage For="() => _form.Longitude" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Bild</label>
+        <InputFile OnChange="OnImageSelected" accept="image/png,image/jpeg,image/webp" />
+    </div>
+
+    <button class="btn btn-primary" type="submit" disabled="@_isSubmitting">Skicka rapport</button>
+</EditForm>
+
+@code {
+    private readonly CreatePetReportFormModel _form = new()
+    {
+        ReporterType = ReporterType.Observer
+    };
+
+    private IBrowserFile? _selectedImage;
+    private string? _errorMessage;
+    private string? _successMessage;
+    private bool _isSubmitting;
+
+    private void OnImageSelected(InputFileChangeEventArgs args)
+    {
+        _selectedImage = args.File;
+        _errorMessage = null;
+        _successMessage = null;
+    }
+
+    private async Task HandleSubmitAsync()
+    {
+        _errorMessage = null;
+        _successMessage = null;
+
+        if (_selectedImage is null)
+        {
+            _errorMessage = "Du måste välja en bild.";
+            return;
+        }
+
+        if (_form.ReporterType == ReporterType.Owner && string.IsNullOrWhiteSpace(_form.PetName))
+        {
+            _errorMessage = "Namn måste anges när du är ägare.";
+            return;
+        }
+
+        _isSubmitting = true;
+        try
+        {
+            var request = new CreatePetReportDto
+            {
+                ReporterType = _form.ReporterType,
+                AnimalDescription = _form.AnimalDescription,
+                LocationName = _form.LocationName,
+                Latitude = _form.Latitude,
+                Longitude = _form.Longitude,
+                PetName = _form.ReporterType == ReporterType.Owner ? _form.PetName : null
+            };
+
+            var result = await ApiClient.CreateAsync(request, _selectedImage, CancellationToken.None);
+            if (!result.Success)
+            {
+                _errorMessage = result.Error ?? "Kunde inte skapa rapport.";
+                return;
+            }
+
+            _successMessage = $"Rapport skapad: {result.Report?.Id}";
+        }
+        finally
+        {
+            _isSubmitting = false;
+        }
+    }
+
+    private sealed class CreatePetReportFormModel
+    {
+        [Required]
+        public ReporterType ReporterType { get; set; }
+
+        [Required]
+        public string AnimalDescription { get; set; } = string.Empty;
+
+        [Required]
+        public string LocationName { get; set; } = string.Empty;
+
+        [Range(-90, 90)]
+        public double Latitude { get; set; }
+
+        [Range(-180, 180)]
+        public double Longitude { get; set; }
+
+        public string? PetName { get; set; }
+    }
+}

@@ -1,0 +1,13 @@
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\bin\Debug\net10.0\PetFinder.Contracts.deps.json
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\bin\Debug\net10.0\PetFinder.Contracts.dll
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\bin\Debug\net10.0\PetFinder.Contracts.pdb
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\PetFinder.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\PetFinder.Contracts.AssemblyInfoInputs.cache
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\PetFinder.Contracts.AssemblyInfo.cs
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\PetFinder.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\PetFinder.Contracts.sourcelink.json
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\PetFinder.Contracts.dll
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\refint\PetFinder.Contracts.dll
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\PetFinder.Contracts.pdb
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\ref\PetFinder.Contracts.dll
+C:\Users\stanor\source\repos\staffannorin-pts\PetFinder\src\PetFinder.Contracts\obj\Debug\net10.0\PetFinde.8DCD6DA4.Up2Date

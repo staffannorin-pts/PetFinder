@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "PetFinder.Blazor/1.0.0": {
+        "dependencies": {
+          "PetFinder.Contracts": "1.0.0"
+        },
+        "runtime": {
+          "PetFinder.Blazor.dll": {}
+        }
+      },
+      "PetFinder.Contracts/1.0.0": {
+        "runtime": {
+          "PetFinder.Contracts.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PetFinder.Blazor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PetFinder.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

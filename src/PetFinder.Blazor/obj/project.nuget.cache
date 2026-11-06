@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9bmy8A+YJ6o=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\stanor\\source\\repos\\staffannorin-pts\\PetFinder\\src\\PetFinder.Blazor\\PetFinder.Blazor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\stanor\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.14\\microsoft.aspnetcore.app.internal.assets.10.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}

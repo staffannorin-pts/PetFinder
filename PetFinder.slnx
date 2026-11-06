@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PetFinder.Api/PetFinder.Api.csproj" />
+    <Project Path="src/PetFinder.Blazor/PetFinder.Blazor.csproj" />
+    <Project Path="src/PetFinder.Contracts/PetFinder.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PetFinder.Tests/PetFinder.Tests.csproj" />
+  </Folder>
+</Solution>
